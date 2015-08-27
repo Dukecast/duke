@@ -19,6 +19,8 @@
 
 (defn playlist-track [track owner]
   (reify
+    om/IDisplayName
+    (display-name [_] "track")
     om/IRender
     (render [this]
       (html [:li (str (:track track) " - " (:artist track))]))))
@@ -26,6 +28,8 @@
 
 (defn playlist [data owner]
   (reify
+    om/IDisplayName
+    (display-name [_] "playlist")
     om/IRender
     (render [this]
       (html [:ul {:class-name "playlist"}
