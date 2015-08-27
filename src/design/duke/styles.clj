@@ -6,5 +6,6 @@
   (let [body (rule :body)]
     (body
      {:font-family "Helvetica Neue"
-      :font-size   "16px"
-      :line-height 1.5})))
+      :font-size "18px" 
+      :color "#4E4E4E"
+      :background-color "#F0F0E7"})))
