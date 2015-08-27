@@ -9,22 +9,15 @@
                     {:id 4 :track "Viking Death March" :artist "Billy Talent" :album "Dead Silence"}]
          :currently-playing 2}))
 
-(defn widget [data owner]
-  (reify
-    om/IRender
-    (render [this]
-      (html
-       [:h2 (:currently-playing data)]))))
-
-
 (defn playlist-track [track owner]
   (reify
     om/IDisplayName
     (display-name [_] "track")
     om/IRender
     (render [this]
-      (html [:li (str (:track track) " - " (:artist track))]))))
-
+      (html [:li {:class-name "track"} (str (:track track)
+                                            " - "
+                                            (:artist track))]))))
 
 (defn playlist [data owner]
   (reify
