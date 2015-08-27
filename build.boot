@@ -8,6 +8,7 @@
                  [org.clojure/clojurescript "1.7.58"]
                  [crisptrutski/boot-cljs-test "0.1.0-SNAPSHOT" :scope "test"]
                  [org.omcljs/om "0.8.6"]
+                 [sablono "0.3.6"]
                  [org.martinklepsch/boot-garden "1.2.5-3" :scope "test"]])
 
 (require
@@ -20,9 +21,7 @@
 
 (deftask build []
   (comp (speak)
-        
         (cljs)
-        
         (garden :styles-var 'duke.styles/screen
 :output-to "css/garden.css")))
 
