@@ -16,6 +16,22 @@
       (html
        [:h2 (:currently-playing data)]))))
 
+
+(defn playlist-track [track owner]
+  (reify
+    om/IRender
+    (render [this]
+      (html [:li (str (:track track) " - " (:artist track))]))))
+
+
+(defn playlist [data owner]
+  (reify
+    om/IRender
+    (render [this]
+      (html [:ul {:class-name "playlist"}
+             (map (fn [track]
+                    (om/build playlist-track track))
+                    (:playlist data))]))))
 (defn init []
-  (om/root widget initial-state
+  (om/root playlist initial-state
            {:target (. js/document (getElementById "container"))}))
